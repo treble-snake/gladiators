@@ -12,7 +12,7 @@ abstract class GladiatorBase extends Fighter {
   var currentHitPoints: Int = 0
 
   override def set(attr: String, value: Int) =
-    Option(value) filter(_ >= 0) foreach {v => attributes get attr foreach(_.value = v) }
+    Option(value) filter(_ >= 0) foreach {v => attributes get attr foreach(_(v))}
 
   override def get(attr: String): Option[Int] = attributes get attr map (_.value)
 
@@ -22,6 +22,9 @@ abstract class GladiatorBase extends Fighter {
   override def shortDesc: String = s"$name (" + (
     attributes map {it => s"${it._2.desc.code}: ${it._2.value}"} mkString ", ") + ")"
 
+  override def apply(attr: String) = get(attr).get
+
+  override def update(attr: String, value: Int) = set(attr, value)
 
   override def condition: (Int, Int) = (currentHitPoints, maxHitPoints)
 

@@ -22,6 +22,10 @@ trait Fighter {
 
   def shortDesc: String
 
+  def apply(attr: String)
+
+  def update(attr: String, value: Int)
+
   /**
    * @param target
    * @return строка лога

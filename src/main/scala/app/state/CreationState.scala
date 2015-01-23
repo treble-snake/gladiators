@@ -22,14 +22,14 @@ class CreationState(private val fighter: Fighter) extends AppState {
         fighter get attr foreach {currentValue =>
           if(newValue - currentValue <= experiencePoints)
           {
-            fighter.set(attr, newValue)
+            fighter(attr) = newValue
             experiencePoints -= newValue - currentValue
           }
         }
     }
   }
 
-  def save = {
+  def save() = {
     if(experiencePoints != 0)
       throw new Exception("Надо потратить все очки опыта. Все!")
 
