@@ -29,7 +29,7 @@ class DuelState extends ArenaState {
       result += s"Ход $i. $fightersState\n" + pair._1.attack(pair._2)
       pair = pair.swap
       i += 1
-    } while(!pair._1.isDead && !pair._2.isDead && i < 1)
+    } while(!pair._1.isDead && !pair._2.isDead && i < 100)
 
     result += s"\nКонец боя. $fightersState\nПобедитель: " +
       List(pair._1, pair._2).filter(!_.isDead).map(_.name).reduceOption(_+ ", " +_).getOrElse("ничья")
