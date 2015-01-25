@@ -5,14 +5,17 @@ import model.attributes._
 
 import scala.util.Random
 
-object Gladiator {
-  val attributes = List(StrengthDescription, DexterityDescription, EnduranceDescription)
-  def makeAttributes = attributes.map(d => d.code -> Attribute(d, 0)).toMap
+object Gladiator extends FighterUtil {
+  val attributes: List[AttributeDescription[Any]] =
+    List(NameDescription, StrengthDescription, DexterityDescription, EnduranceDescription).asInstanceOf[List[AttributeDescription[Any]]]
+  def makeAttributes: Map[String, Attribute[Any]] = attributes.map(d => d.code -> Attribute(d, 0)).toMap
+  .asInstanceOf[Map[String, Attribute[Any]]]
+  def apply() = new Gladiator
 }
 
-class Gladiator extends GladiatorBase {
+class Gladiator extends FighterBase {
 
-  override protected val attributes = Gladiator.makeAttributes
+//  override protected val attributes = Gladiator.makeAttributes
 
   override def attack(target: Fighter): String = {
     val log:String = s"$name ударил по ${target.name}"
@@ -36,9 +39,9 @@ class Gladiator extends GladiatorBase {
     damage
   }
 
-  private def strength = get("str").get
-  private def dexterity = get("dex").get
-  private def endurance = get("end").get
+  private def strength = 5//get("str").get
+  private def dexterity = 5//get("dex").get
+  private def endurance = 5//get("end").get
 }
 
 

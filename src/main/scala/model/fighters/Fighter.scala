@@ -18,7 +18,7 @@ trait Fighter {
    * @param attr attribute code
    * @return attribute value
    */
-  def get(attr: String): Option[Int]
+  def get[T](attr: String): Option[T]
 
   def shortDesc: String
 
@@ -32,7 +32,7 @@ trait Fighter {
    */
   def attack(target: Fighter): String
 
-  def prepare
+  def prepare()
 
   def avoidAttack(hitChange: Double): Double
 

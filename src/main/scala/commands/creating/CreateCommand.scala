@@ -11,7 +11,7 @@ object CreateCommand extends Command {
   override val ALIAS = "create"
 
   val types = Map(
-    "usual" -> ("Обычный гладиатор", () => new Gladiator)
+    "usual" -> ("Обычный гладиатор", () => Gladiator.attributes)
   )
 
   override def execute(args: String): String = {

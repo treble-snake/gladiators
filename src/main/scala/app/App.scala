@@ -3,7 +3,7 @@ package app
 import app.state.{AppState, DefaultState}
 import commands.Commands
 import commands.common.HelpCommand
-import model.fighters.{Gladiator, Fighter}
+import model.fighters.{Fighter, Gladiator}
 
 object App {
 
@@ -11,10 +11,10 @@ object App {
   var fighters: Map[String, Fighter] = Map()
 
   def fightersList: String = "Список бойцов:\n" +
-    App.fighters.map { f => s"- ${f._2.shortDesc}"}.mkString("\n")
+    fighters.map(" -" +_._2.name).mkString("\n")
 
   def main(args: Array[String]) {
-    Configuration.init
+    Configuration.init()
     println(HelpCommand.execute)
 
     var tmp:Fighter = new Gladiator
@@ -47,7 +47,7 @@ object App {
         println(s"${e.getMessage}\nНажмите Enter")
         Console.in.readLine
     }
-      println(state toString)
+      println(state.toString)
 
 
     }
