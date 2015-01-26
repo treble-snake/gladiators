@@ -1,12 +1,12 @@
 package commands
 
 import app.App
-import commands.arena.{FightCommand, KickCommand, PickCommand, ArenaCommand}
-import commands.common.{CommandNotFound, HelpCommand, ExitCommand, CancelCommand}
-import commands.creating.{SaveCommand, SetCommand, CreateCommand}
+import commands.arena.{ArenaCommand, FightCommand, KickCommand, PickCommand}
+import commands.common.{CancelCommand, CommandNotFound, ExitCommand, HelpCommand}
+import commands.creating.{CreateCommand, SaveCommand, SetCommand}
 
 object Commands {
-  private val _all = Map(
+  val all = Map(
     CreateCommand.ALIAS -> CreateCommand,
     ArenaCommand.ALIAS -> ArenaCommand,
     CancelCommand.ALIAS -> CancelCommand,
@@ -19,8 +19,6 @@ object Commands {
     HelpCommand.ALIAS -> HelpCommand
   )
 
-  def all = _all
-
-  def get(alias: String): Command = _all get alias filter {
+  def get(alias: String): Command = all get alias filter {
       c => c.alwaysAvailable || App.state.commands.contains(c)} getOrElse CommandNotFound
 }

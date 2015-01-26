@@ -7,6 +7,6 @@ object ExitCommand extends Command {
 
   override def isExit = true
   override def alwaysAvailable = true
-  override def execute(args: String): String = ""
+  override def execute(args: String*): String = ""
   override def description: String = "- выйти из программы"
 }

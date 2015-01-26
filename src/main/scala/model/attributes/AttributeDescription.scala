@@ -1,25 +1,25 @@
 package model.attributes
 
-abstract class AttributeDescription {
-  val name = "Название"
-  val code = "Код"
-  val desc = "Описание"
+trait AttributeDescription {
+  val name: String
+  val code: String
+  val desc: String
 }
 
 object DexterityDescription extends AttributeDescription {
-  override val name: String = "Ловкость"
-  override val code: String = "dex"
-  override val desc: String = "Влияет на шанс попадания/уворота"
+  override val name = "Ловкость"
+  override val code = "dex"
+  override val desc = "Влияет на шанс попадания/уворота"
 }
 
 object EnduranceDescription extends AttributeDescription {
-  override val name: String = "Выносливость"
-  override val code: String = "end"
-  override val desc: String = "Влияет на количество очков жизней"
+  override val name = "Выносливость"
+  override val code = "end"
+  override val desc = "Влияет на количество очков жизней"
 }
 
 object StrengthDescription extends AttributeDescription {
-  override val name: String = "Сила"
-  override val code: String = "str"
-  override val desc: String = "Влияет на наносимые повреждения"
+  override val name = "Сила"
+  override val code = "str"
+  override val desc = "Влияет на наносимые повреждения"
 }

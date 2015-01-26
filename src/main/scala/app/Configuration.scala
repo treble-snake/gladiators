@@ -6,7 +6,7 @@ object Configuration {
   var hpMultiplier: Double = 5
   var dexMultiplier: Double = 2
 
-  def init = {
+  def init() {
 
   }
 }

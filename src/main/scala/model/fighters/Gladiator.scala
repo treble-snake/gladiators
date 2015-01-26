@@ -10,7 +10,7 @@ object Gladiator {
   def makeAttributes = attributes.map(d => d.code -> Attribute(d, 0)).toMap
 }
 
-class Gladiator extends GladiatorBase {
+class Gladiator extends FighterBase {
 
   override protected val attributes = Gladiator.makeAttributes
 
@@ -25,7 +25,7 @@ class Gladiator extends GladiatorBase {
     log + s" и нанес ${target.receiveDamage(strength)} урона"
   }
 
-  override def prepare: Unit = {
+  override def prepare() {
     maxHitPoints = (endurance * Configuration.hpMultiplier).toInt; currentHitPoints = maxHitPoints }
 
   override def avoidAttack(hitChange: Double): Double =

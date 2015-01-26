@@ -5,7 +5,7 @@ import app.state.DefaultState
 import commands.Command
 
 object CancelCommand extends Command {
-  override val ALIAS: String = "cancel"
-  override def execute(args: String): String = { App.state = new DefaultState; "" }
-  override def description: String = "- возврат в главное меню"
+  override val ALIAS = "cancel"
+  override def execute(args: String*): String = { App.state = new DefaultState; "" }
+  override val description = "- возврат в главное меню"
 }

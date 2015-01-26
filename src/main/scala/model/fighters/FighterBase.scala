@@ -2,9 +2,9 @@ package model.fighters
 
 import model.attributes.Attribute
 
-abstract class GladiatorBase extends Fighter {
+abstract class FighterBase extends Fighter {
 
-  protected val attributes: Map[String, Attribute] = null
+  protected val attributes: Map[String, Attribute]
 
   override var name: String = "anonymous"
 

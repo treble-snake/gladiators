@@ -32,13 +32,13 @@ trait Fighter {
    */
   def attack(target: Fighter): String
 
-  def prepare
+  def prepare()
 
   def avoidAttack(hitChange: Double): Double
 
   def receiveDamage(damage: Int): Int
 
-  def condition:(Int, Int)
+  def condition: (Int, Int)
 
   def isDead: Boolean
 }

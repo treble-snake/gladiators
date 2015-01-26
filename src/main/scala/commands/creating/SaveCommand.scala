@@ -1,13 +1,13 @@
 package commands.creating
 
-import app.state.{CreationState, DefaultState}
 import app.App
+import app.state.{CreationState, DefaultState}
 import commands.Command
 
 object SaveCommand extends Command {
-  override val ALIAS: String = "save"
+  override val ALIAS = "save"
 
-  override def execute(args: String): String = {
+  override def execute(args: String*): String = {
 //    try {
       App.state.asInstanceOf[CreationState].save
       App.state = new DefaultState
@@ -17,5 +17,5 @@ object SaveCommand extends Command {
 //    }
   }
 
-  override def description: String = "- для сохранения бойца в список"
+  override val description = "- для сохранения бойца в список"
 }
